@@ -4,8 +4,9 @@
 The purpose of this program is to show how Inter-Process Communication(IPC) - especially [shared memory](https://www.tutorialspoint.com/inter_process_communication/inter_process_communication_shared_memory.htm)- 
 and [semaphores](https://cse.yeditepe.edu.tr/~sbaydere/fall2010/cse331/files/SystemVIPC.pdf) work. There are two types of processes: P and 
 C. There is 1 C and *N* (command line parameter) P processes. C and P processes communicate via a shared memory that contains two 
-structures for bidirectional communication: in-ds (P → C) and out-ds (C → P).
-<br/>
+structures for bidirectional communication: in-ds (P → C) and out-ds (C → P). P processes read a random line from a [text file](https://github.com/patschris/IpcSemaphoresSharedMem/blob/master/doc.txt) and write this line to in-ds. C reads from in-ds, makes the
+sentence capital and writes the produced message in the out-ds. A random P process read the sentence and checks if the received message
+is written by it (pid match).<br/>
 ![projectScheme](https://github.com/patschris/IpcSemaphoresSharedMem/blob/master/scheme.PNG)<br/>
 
 Written in C, Ubuntu 16.04.3 LTS. 
